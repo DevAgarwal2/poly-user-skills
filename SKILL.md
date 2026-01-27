@@ -29,6 +29,9 @@ https://data-api.polymarket.com
 # User's current positions (with P&L)
 /positions?user=0x56687bf447db6ffa42ffe2204a05edaa20f55839&limit=20
 
+# User's current positions only (exclude closed/redeemable markets)
+/positions?user=0x56687bf447db6ffa42ffe2204a05edaa20f55839&limit=100&redeemable=false
+
 # User's trading history
 /trades?user=0x56687bf447db6ffa42ffe2204a05edaa20f55839&limit=50
 
@@ -70,6 +73,7 @@ https://data-api.polymarket.com
 - `offset` - Pagination offset (default: 0)
 - `sortBy` - Position sorting: `CURRENT`, `CASHPNL`, `PERCENTPNL`, `TITLE`, etc.
 - `sortDirection` - `ASC` or `DESC`
+- `redeemable` - Set to `false` to filter out finished markets ready for redemption
 
 ### Leaderboard
 - `category` - `OVERALL`, `POLITICS`, `SPORTS`, `CRYPTO`, `CULTURE`, `FINANCE`, `TECH`, `ECONOMICS`, `WEATHER`, `MENTIONS`
