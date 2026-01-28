@@ -58,7 +58,7 @@ curl "https://data-api.polymarket.com/positions?user=0x56687bf447db6ffa42ffe2204
 | `market` | string[] | Comma-separated condition IDs |
 | `eventId` | int[] | Comma-separated event IDs |
 | `sizeThreshold` | number | Minimum position size (default: 1) |
-| `redeemable` | boolean | Filter redeemable positions |
+| `redeemable` | boolean | **IMPORTANT**: `false`=active only, `true`=claimable payouts, omitted=all positions |
 | `mergeable` | boolean | Filter mergeable positions |
 | `limit` | int | Results (default: 100, max: 500) |
 | `offset` | int | Pagination offset (default: 0) |
@@ -168,6 +168,33 @@ curl "https://data-api.polymarket.com/closed-positions?user=0x56687bf447db6ffa42
   }
 ]
 ```
+
+**Understanding the `redeemable` Parameter:**
+
+This is a critical parameter for position queries:
+
+- **`redeemable=false`** → Returns ONLY current active positions (default behavior many users want)
+  ```bash
+  # Get only active positions
+  curl "https://data-api.polymarket.com/positions?user=0x...&redeemable=false"
+  ```
+
+- **`redeemable=true`** → Returns old positions with UNCLAIMED PAYOUTS (resolved markets you haven't claimed)
+  ```bash
+  # Check for claimable payouts
+  curl "https://data-api.polymarket.com/positions?user=0x...&redeemable=true"
+  ```
+
+- **Omit `redeemable`** → Returns ALL positions (active + redeemable)
+  ```bash
+  # Get everything
+  curl "https://data-api.polymarket.com/positions?user=0x..."
+  ```
+
+**Use Cases:**
+- Portfolio tracking → `redeemable=false`
+- Find unclaimed money → `redeemable=true`
+- Complete overview → omit parameter
 
 ---
 
