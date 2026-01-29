@@ -243,5 +243,33 @@ See `examples/README.md` for complete documentation and workflows.
 
 ## References
 
-- **Full API Docs**: See [api.md](references/api.md)
-- **Examples**: See [examples/README.md](examples/README.md)
+- **Full API Docs**: See [references/api.md](references/api.md)
+- **Profitability Guide**: See [references/PROFITABILITY_GUIDE.md](references/PROFITABILITY_GUIDE.md) - How to check if traders are profitable
+- **Trade Analysis Guide**: See [references/TRADE_ANALYSIS_GUIDE.md](references/TRADE_ANALYSIS_GUIDE.md) - Finding won/lost bets and failed trades
+- **Endpoint Coverage**: See [references/ENDPOINT_COVERAGE.md](references/ENDPOINT_COVERAGE.md) - All 8 endpoints covered
+- **Examples**: See [examples/README.md](examples/README.md) - Python usage examples
+
+## File Structure
+
+```
+polymarket-data-api/
+├── SKILL.md                          # Main skill definition
+├── references/                       # 📚 Reference documentation
+│   ├── api.md                       # Complete API documentation
+│   ├── PROFITABILITY_GUIDE.md       # How to check profitability
+│   ├── TRADE_ANALYSIS_GUIDE.md      # Win/loss analysis guide
+│   └── ENDPOINT_COVERAGE.md         # Endpoint coverage checklist
+└── examples/                         # 🐍 Python examples
+    ├── README.md                    # Examples documentation
+    ├── utils.py                     # Shared utilities
+    ├── get_user_positions.py        # User positions with P&L
+    ├── get_user_trades.py           # Trading history
+    ├── get_user_activity.py         # Complete activity log
+    ├── get_portfolio_value.py       # Portfolio value
+    ├── get_leaderboard.py           # Trader rankings
+    ├── get_market_holders.py        # Market top holders
+    ├── trader_profitability.py      # Check if profitable
+    ├── trade_analysis.py            # Complete win/loss analysis
+    ├── analyze_trader.py            # Full trader profile
+    └── redeemable_parameter_demo.py # Demo: redeemable parameter
+```
